@@ -1,0 +1,51 @@
+@model IEnumerable<WebInventoryManagementSystem.Stock>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_sidePanelPage.cshtml";
+}
+
+<h2>Stock Dashboard</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create",new { },new {@class="btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Stock Product Carton")
+        </th>
+        <th>
+            @Html.DisplayName("Carton Per Quantity")
+        </th>
+        <th>
+            @Html.DisplayName("Product Name")
+        </th>
+        <th>
+            @Html.DisplayName("Product Invoice ID")
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.st_proCarton)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.st_proPieces)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product.pro_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.st_purchaseInvID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.st_id },new {@class="btn btn-primary"}) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.st_id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

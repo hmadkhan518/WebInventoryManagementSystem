@@ -1,0 +1,51 @@
+﻿@model WebInventoryManagementSystem.Stock
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_sidePanelPage.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Stock</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.st_proCarton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.st_proCarton)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.st_proPieces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.st_proPieces)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.product.pro_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product.pro_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.purchaseInvoice.pi_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purchaseInvoice.pi_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.st_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

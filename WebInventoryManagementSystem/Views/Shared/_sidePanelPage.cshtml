@@ -1,0 +1,97 @@
+@using System.Web.Mvc.Html;
+@using System.Web.Mvc;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Inventory Portal</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/render-assets.js"></script>
+    <script src="~/Scripts/render-pug.js"></script>
+    <script src="~/Scripts/render-scripts.js"></script>
+    <script src="~/Scripts/render-scss.js"></script>
+    <script src="~/Scripts/sb-watch.js"></script>
+    <script src="~/Scripts/start-debug.js"></script>
+    <script src="~/Scripts/start.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div class="bg-light border-light" id="sidebar-wrapper">
+            <div class="sidebar-heading">Inventory Portal</div>
+            <div class="list-group list-group-flush" id="wrap">
+                <a href="~/Users/Index" class="list-group-item list-group-item-action bg-light">Users</a>
+                <a href="~/Products/Index" class="list-group-item list-group-item-action bg-light">Product</a>
+                <a href="~/suppliers/Index" class="list-group-item list-group-item-action bg-light">Suppliers</a>
+                <a href="~/Stocks/Index" class="list-group-item list-group-item-action bg-light">Stock</a>
+                <a href="~/PurchaseInvoice/Create" class="list-group-item list-group-item-action bg-light">Purchase Invoice</a>
+                <a href="~/Roles/Index" class="list-group-item list-group-item-action bg-light">Roles</a>
+                <a href="~/categories/Index" class="list-group-item list-group-item-action bg-light">Categories</a>
+            </div>
+        </div>
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Top navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary" id="menu">Show/Hide</button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="~/Home/Index">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/Contact">Contact</a>
+                        </li>
+                        <li class="nav-item col-md-offset-6">
+                            <h4> Welcome </h4>
+                        </li>
+                        <li class="nav-item col-md-8">
+                            <h4> | @Session["name"] </h4>
+                        </li>
+                        <li class="nav-item col-md-10">
+                            <h4> | @Html.ActionLink("Logout", "Logout", "Auth") </h4>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- Page content-->
+            <div class="container-fluid">
+                @RenderBody();
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - All Rights Reserved by: App-Zone</p>
+                </footer>
+            </div>
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", false)
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+    <script>
+        $("#menu").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+</body>
+</html>

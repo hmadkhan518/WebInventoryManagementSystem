@@ -1,0 +1,49 @@
+@model IEnumerable<WebInventoryManagementSystem.category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_sidePanelPage.cshtml";
+}
+
+<h2>Categories Dashboard</h2>
+
+<p>
+    @Html.ActionLink("Add Category", "Create", new { }, new {@class="btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Category name")
+        </th>
+        <th>
+            @Html.DisplayName("Category status")
+        </th>
+        <th>
+            @Html.DisplayName("Actions")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cat_name)
+        </td>
+        <td>
+            @{
+                if(item.cat_status == 1)
+                {
+                    @Html.Label("Active")
+                }
+                else
+                {
+                    @Html.Label("In-Active")
+                }
+                }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cat_id }, new { @class="btn btn-primary" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cat_id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+</table>

@@ -1,0 +1,47 @@
+@model IEnumerable<WebInventoryManagementSystem.role>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_sidePanelPage.cshtml";
+}
+
+<h2>Role Dashboard</h2>
+
+<p>
+    @Html.ActionLink("Add Role", "Create", new { }, new {@class="btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Role")
+        </th>
+        <th>
+            @Html.DisplayName("Status")
+        </th>
+        <th>
+           Actions
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.r_name)
+        </td>
+        <td>
+            @{ 
+                if (item.r_status == Convert.ToByte(1))
+                {<p>Active</p>}
+                else if(item.r_status == 0)
+                { <p>In-Active</p>}
+            }
+            
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.r_id }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.r_id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

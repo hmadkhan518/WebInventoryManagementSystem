@@ -1,0 +1,55 @@
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_sidePanelPage.cshtml";
+}
+
+<h2>Purchase Invoice</h2>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.intellisense.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/TableJS.js"></script>
+@using (Html.BeginForm())
+{
+    @Html.Label("Date", new {@class="col-md-3"})
+    <br />
+    <input class="form col-3" type="date" id="datePicker" name="datePicker" />
+    <br />
+    @Html.Label("Suppliers", new { @class = "col-md-3" })
+    <br />
+    @Html.DropDownList("Supplier", ViewBag.suppList as SelectList, new { @class = "col-md-3" })
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>@Html.Label("Product")</th>
+                <th>@Html.Label("Barcode")</th>
+                <th>@Html.Label("Expiry Date")</th>
+                <th>@Html.Label("No Of Cartons")</th>
+                <th>@Html.Label("Per Carton Quantity")</th>
+                <th>@Html.Label("Buying Price")</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Html.DropDownList("ProductName", ViewBag.proList as SelectList,new { htmlAttributes = new { @class = "col-md-3" } })</td>
+                <td>@Html.Editor("ProductBarcode")</td>
+                <td><input type="date" id="exdatePicker" name="exdatePicker" /></td>
+                <td>@Html.Editor("CartonTxt")</td>
+                <td>@Html.Editor("pieceTxt")</td>
+                <td>@Html.Editor("buyingTxt")</td>
+                <td><input type="button" value="Add Invoice" class="click" /></td>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+        </tbody>
+        <tr><td><input type="button" class="del" value="Delete" /></td></tr>
+    </table>
+    
+}

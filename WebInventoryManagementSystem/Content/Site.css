@@ -1,0 +1,37 @@
+*{
+    font-family:'Segoe UI Light';
+}
+
+body {
+    background-color:#fff;
+    padding-top: 50px;
+    height:100%;
+    padding-bottom: 20px;
+}
+th{
+    margin-right:100%;
+}
+td
+{
+    margin-right:200%;
+}
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+input {
+    margin:10px;
+}
+.leftPanel{
+    height:100px;
+    background-color:palevioletred;
+}
+.del
+{
+    background-color:royalblue
+}
+.click
+{
+    
+}

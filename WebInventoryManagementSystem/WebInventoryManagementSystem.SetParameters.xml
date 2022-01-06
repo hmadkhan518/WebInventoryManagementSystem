@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="hmadkhan518-001-site1" />
+  <setParameter name="inventoryDBEntities-Web.config Connection String" value="metadata=res://*/DataEntityModel.csdl|res://*/DataEntityModel.ssdl|res://*/DataEntityModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DESKTOP-QLVB21S;initial catalog=inventoryDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" />
+</parameters>

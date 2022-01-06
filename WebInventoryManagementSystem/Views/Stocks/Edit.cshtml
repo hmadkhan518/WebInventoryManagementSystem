@@ -1,0 +1,58 @@
+@model WebInventoryManagementSystem.Stock
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_sidePanelPage.cshtml";
+}
+
+<h2>Edit Stock</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.st_id)
+
+        <div class="form-group">
+            @Html.Label("Stock Product ID", "st_proID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("st_proID", ViewBag.st_proID as SelectList, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.st_proID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Product Carton", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.st_proCarton, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.st_proCarton, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Products Per Carton", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.st_proPieces, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.st_proPieces, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.st_purchaseInvID, "Purchase Invoice ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("st_purchaseInvID", ViewBag.st_purchaseInvID as SelectList, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.st_purchaseInvID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                @Html.ActionLink("Back to List", "Index", new { }, new {@class="btn btn-success"})
+            </div>
+        </div>
+    </div>
+}

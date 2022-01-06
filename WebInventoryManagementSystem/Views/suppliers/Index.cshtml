@@ -1,0 +1,53 @@
+@model IEnumerable<WebInventoryManagementSystem.supplier>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_sidePanelPage.cshtml";
+}
+
+<h2>Suppliers Dashboard</h2>
+
+<p>
+    @Html.ActionLink("Add Supplier", "Create",new { },new {@class="btn btn-primary"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Supplier Name")
+        </th>
+        <th>
+            @Html.DisplayName("Address")
+        </th>
+        <th>
+            @Html.DisplayName("Phone #")
+        </th>
+        <th>
+            @Html.DisplayName("Opening Balance")
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sup_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sup_address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sup_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sup_openingBalance)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.sup_id },new {@class="btn btn-primary"}) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.sup_id },new {@class="btn btn-danger"})
+        </td>
+    </tr>
+}
+
+</table>
