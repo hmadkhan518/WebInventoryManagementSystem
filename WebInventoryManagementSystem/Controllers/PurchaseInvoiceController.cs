@@ -38,6 +38,10 @@ namespace WebInventoryManagementSystem.Controllers
                 ViewBag.suppList = new SelectList(data,"sup_id", "sup_name");
                 var pro = (from c in db.products select new { c.pro_id, c.pro_name }).ToList();
                 ViewBag.proList = new SelectList(pro, "pro_id", "pro_name");
+                
+                var p = (from a in db.products select new { a.pro_sellingPrice, a.pro_expiryDate, a.pro_barcode }).ToList();
+                ViewBag.a = new SelectList(p, "pro_sellingPrice", "a.pro_expiryDate", "a.pro_barcode");
+
                 return View();
             }
             else
